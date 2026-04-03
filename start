@@ -1,0 +1,21 @@
+#!/bin/sh
+
+UPSTREAM=void-packages/srcpkgs
+MINE=my-pkgs
+WORK=.temp
+call_name=$(basename $0)
+dir_name=$(dirname $0)
+
+cd $dir_name
+case $call_name in
+	"start")
+		fuse-overlayfs -o lowerdir=$UPSTREAM,upperdir=$MINE,workdir=$WORK $UPSTREAM
+		echo "Mount Done, if you're already in $UPSTREAM, please cd out and cd back."
+		;;
+	"end")
+		fusermount -u $UPSTREAM
+		;;
+	*)
+		echo Use start/end to mount/umount custom packages to upstream packages.
+		;;
+esac
