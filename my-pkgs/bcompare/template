@@ -1,6 +1,6 @@
 # Template file for 'bcompare'
 pkgname=bcompare
-version=5.1.7.31736
+version=5.2.1.32035
 revision=1
 archs="x86_64"
 
@@ -17,11 +17,11 @@ nostrip=yes
 repository=nonfree
 
 distfiles="https://www.scootersoftware.com/files/${pkgname}-${version}.x86_64.tar.gz"
-checksum=aeaa895e3e8d53e1b1f2646716eed6ec3b7127421d10a632351fb64702c9d305
+checksum=04ff69fb9da1187b926e0caaad1f88697a134c8d641360945b4f525a1bb23188
 
 do_install() {
 	vmkdir "usr/lib/beyondcompare"
-	cp {BCompare,BCompare.mad,lib7z.so,libQt5Pas.so.1,libcloudstorage.so.22.0,libunrar.so} "${DESTDIR}/usr/lib/beyondcompare/"
+	cp {BCompare,BCompare.mad,lib7z.so,libQt6Pas.so.6,libcloudstorage.so.22.0,libunrar.so} "${DESTDIR}/usr/lib/beyondcompare/"
 
 	ln -sf /usr/lib/libbz2.so.1 "${DESTDIR}/usr/lib/beyondcompare/libbz2.so.1.0"
 
