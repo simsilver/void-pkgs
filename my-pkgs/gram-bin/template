@@ -1,0 +1,19 @@
+# Template file for 'localsend-bin'
+pkgname=gram-bin
+version=2.0.0
+revision=1
+archs="x86_64"
+
+short_desc="Powerful and Modern Open-source Code Editor"
+maintainer="Orphaned <orphan@voidlinux.org>"
+license="Apache-2.0, GPL-3.0-or-later, AGPL-3.0-or-later"
+homepage="https://gram-editor.com/"
+nocross=yes
+nostrip=yes
+
+distfiles="https://codeberg.org/GramEditor/gram/releases/download/${version}/gram-linux-x86_64-${version}.tar.gz"
+checksum=ab147f0cc6d8ba48ad0fbaa1235d8da737482c5823ae974ffa61252ebe91d436
+
+do_install() {
+	cp -r {bin,libexec,share} "${DESTDIR}/usr/"
+}
